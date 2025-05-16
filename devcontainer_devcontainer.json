@@ -1,0 +1,35 @@
+{
+  "name": "Angular & NestJS Workspace",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "nrwl.angular-console",
+        "angular.ng-template",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker",
+        "editorconfig.editorconfig"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install -g @angular/cli @nestjs/cli",
+  "forwardPorts": [
+    4200,   // Angular default
+    3000    // NestJS default
+  ],
+  "portsAttributes": {
+    "4200": {
+      "label": "Angular App",
+      "onAutoForward": "openPreview"
+    },
+    "3000": {
+      "label": "NestJS API",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "remoteUser": "node"
+}
